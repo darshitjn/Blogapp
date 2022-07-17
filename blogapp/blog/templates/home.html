@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Blog Posts</h1>
+</br>
+
+<div class="list-group">
+{% for post in object_list %}
+    <!--<li><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a>
+        - {{ post.author.first_name }} {{ post.author.last_name }}
+        - {{ post.post_date }}
+        <br/>
+    {{ post.snippet }}</li>
+   -->
+    <a href="{% url 'article-detail' post.pk %}" class="list-group-item list-group-item-action">
+        <p class="text-primary">{{ post.title }}</p>
+        - {{ post.author.first_name }} {{ post.author.last_name }}
+        - {{ post.post_date }}
+        <br/>
+        {{ post.snippet }}
+    </a>
+    <br><br><br>
+{% endfor %}
+</div>
+
+{% endblock %}
